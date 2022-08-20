@@ -5,7 +5,7 @@ import java.util.List;
 public class Solution {
 
     private static final int ALPHABET_SIZE = 26;
-    private static final int INDEX_FORWARD_SLASH = 26;
+    private static final int INDEX_FOLDER_SEPARATOR = 26;
     private final TrieNode root = new TrieNode();
 
     private final class TrieNode {
@@ -31,7 +31,7 @@ public class Solution {
         boolean encounteredEndOfDirectory = false;
         for (int i = 0; i < directory.length(); ++i) {
             int index = getIndexFromChar(directory.charAt(i));
-            if (encounteredEndOfDirectory && index == INDEX_FORWARD_SLASH) {
+            if (encounteredEndOfDirectory && index == INDEX_FOLDER_SEPARATOR) {
                 return false;
             }
             if (current.branches[index].isEndOfDirectory) {
@@ -61,6 +61,6 @@ public class Solution {
     }
 
     private int getIndexFromChar(char ch) {
-        return Character.isLetter(ch) ? (ch - 'a') : INDEX_FORWARD_SLASH;
+        return Character.isLetter(ch) ? (ch - 'a') : INDEX_FOLDER_SEPARATOR;
     }
 }
