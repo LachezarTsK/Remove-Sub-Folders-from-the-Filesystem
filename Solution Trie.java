@@ -14,7 +14,6 @@ public class Solution {
     }
 
     public List<String> removeSubfolders(String[] folder) {
-
         addAllDirectoriesToTrie(folder);
         List<String> rootDirectories = new ArrayList<>();
 
@@ -29,6 +28,7 @@ public class Solution {
     private boolean isRootDirectory(String directory) {
         TrieNode current = root;
         boolean encounteredEndOfDirectory = false;
+        
         for (int i = 0; i < directory.length(); ++i) {
             int index = getIndexFromChar(directory.charAt(i));
             if (encounteredEndOfDirectory && index == INDEX_FOLDER_SEPARATOR) {
@@ -50,6 +50,7 @@ public class Solution {
 
     private void addDirectoryToTrie(String directory) {
         TrieNode current = root;
+        
         for (int i = 0; i < directory.length(); ++i) {
             int index = getIndexFromChar(directory.charAt(i));
             if (current.branches[index] == null) {
