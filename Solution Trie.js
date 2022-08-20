@@ -30,7 +30,7 @@ function isRootDirectory(directory) {
     
     for (let i = 0; i < directory.length; ++i) {
         let index = getIndexFromChar(directory.charAt(i));
-        if (encounteredEndOfDirectory && index === this.INDEX_FORWARD_SLASH) {
+        if (encounteredEndOfDirectory && index ===  this.INDEX_FOLDER_SEPARATOR) {
             return false;
         }
         if (current.branches[index].isEndOfDirectory) {
@@ -81,5 +81,5 @@ function TrieNode(ALPHABET_SIZE) {
  * @return {number}
  */
 function getIndexFromChar(ch) {
-    return (ch >= 'a' && ch <= 'z') ? (ch.codePointAt(0) - this.ASCII_SMALL_CASE_A) : this.INDEX_FORWARD_SLASH;
+    return (ch >= 'a' && ch <= 'z') ? (ch.codePointAt(0) - this.ASCII_SMALL_CASE_A) :  this.INDEX_FOLDER_SEPARATOR;
 }
