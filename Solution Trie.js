@@ -27,6 +27,7 @@ var removeSubfolders = function (folder) {
 function isRootDirectory(directory) {
     let current = this.ROOT;
     let encounteredEndOfDirectory = false;
+    
     for (let i = 0; i < directory.length; ++i) {
         let index = getIndexFromChar(directory.charAt(i));
         if (encounteredEndOfDirectory && index === this.INDEX_FORWARD_SLASH) {
@@ -56,6 +57,7 @@ function addAllDirectoriesToTrie(folder) {
  */
 function addDirectoryToTrie(directory) {
     let current = this.ROOT;
+    
     for (let i = 0; i < directory.length; ++i) {
         let index = getIndexFromChar(directory.charAt(i));
         if (current.branches[index] === null) {
